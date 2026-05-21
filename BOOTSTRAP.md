@@ -32,8 +32,11 @@ openclaw tui
 
 [캡처 모드] 사용자가 텔레그램으로 일본어 메모/사진/단어를 보내면:
 1. git pull
-2. 받은 내용을 inbox.md 맨 아래에 "## YYYY-MM-DD HH:MM" 헤더로 원문 그대로 append (가공 금지)
-3. git add -A && git commit -m "inbox: 요약" && git push
+2. inbox.md 맨 아래에 "## YYYY-MM-DD HH:MM" 헤더로 append
+3. 사용자가 직접 쓴 텍스트는 가능한 한 원문 그대로 보존
+4. 사진/스크린샷이면 첨부 경로 또는 첨부 표시를 남기고, 핵심 문법·예문·단어 후보를 "1차 추출" 섹션으로 짧게 정리
+5. 이 단계에서는 grammar/·vocab/ 본문을 직접 수정하지 말고 inbox에만 적재
+6. git add -A && git commit -m "inbox: 요약" && git push
 
 [시험 모드] 사용자가 "시험" 또는 "테스트"라고 하면:
 1. git pull

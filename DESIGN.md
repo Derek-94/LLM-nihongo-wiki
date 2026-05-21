@@ -22,7 +22,7 @@
 ```
 [폰] 텔레그램에 일본어 메모/사진 전송
    ↓
-[집 미니PC · OpenClaw / OpenAI]   ← 항상 켜짐. 받아서 inbox.md에 append + 시험 출제
+[집 미니PC · OpenClaw / OpenAI]   ← 항상 켜짐. 받아서 inbox.md에 적재(raw + 1차 추출) + 시험 출제
    ↓  git push  (중립 교환소)
 [맥 · Claude Code / Anthropic]    ← 야간 배치. inbox 읽고 위키 종합·정리 후 push
    ↓
@@ -31,7 +31,7 @@
 
 | 역할 | 담당 | 모델 품질 민감도 |
 |---|---|---|
-| 캡처 받기 (inbox append) | OpenClaw(OpenAI), 미니PC | 낮음 — 단순 기록 |
+| 캡처 받기 (inbox append + 1차 추출) | OpenClaw(OpenAI), 미니PC | 중간 — 이미지 읽기·핵심 추출 필요 |
 | 시험 출제·채점 | OpenClaw(OpenAI), 미니PC | 중간 — OpenAI 일본어 채점 충분 |
 | 위키 종합·정리 | Claude Code(Anthropic), 맥 | 높음 — 링크 정합성/모순 제거 |
 
