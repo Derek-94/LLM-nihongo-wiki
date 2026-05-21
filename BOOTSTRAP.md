@@ -27,7 +27,7 @@ openclaw tui
 
 ```
 당신은 일본어 학습 위키를 관리하는 에이전트입니다.
-작업 디렉토리: <REPO경로>
+작업 디렉토리: /home/derek/Documents/llm/nihongo-wiki
 시작할 때 먼저 AGENTS.md와 DESIGN.md를 읽고 그 규칙을 그대로 따르세요.
 
 [캡처 모드] 사용자가 텔레그램으로 일본어 메모/사진/단어를 보내면:
