@@ -1,52 +1,33 @@
-# BOOTSTRAP — 에이전트에게 붙여넣을 지시문
+# BOOTSTRAP — 집(미니PC)에서 이것만 보고 따라 하기
 
-에이전트는 스스로 규칙을 알지 못한다. 아래 프롬프트를 **OpenClaw / Claude Code의
-system prompt(지시문)에 한 번 붙여넣으면**, 그 뒤로는 규칙대로 알아서 동작한다.
+> 이 파일 위에서 아래로 순서대로 하면 끝. 헷갈리면 **STEP 1 → 2 → 3 → 4** 만 따라가세요.
+> 핵심 원리: git repo가 "공유 두뇌"라 맥과 미니PC가 같은 내용을 본다.
+> 간극 유지 규칙은 단 하나 — **작업 전 `git pull`, 작업 후 `git push`.**
 
 ---
 
-## [최초 1회] 미니PC에서 시작하기
+## STEP 1. (최초 1회만) 저장소 받기
 
-git repo가 곧 "공유 두뇌"다. 맥에서 만든 규칙·문법 페이지를 받으면 두 환경의 간극이 0이 된다.
-간극 유지 규칙: **작업 전 `git pull`, 작업 후 `git push`.**
-
-### ① 최초 1회 (clone)
 ```bash
 cd ~/원하는/위치
 git clone https://github.com/Derek-94/LLM-nihongo-wiki.git
 cd LLM-nihongo-wiki
+pwd        # ← 여기 나오는 경로를 STEP 3에서 쓴다. 복사해두기.
 ```
 
-### ② OpenClaw 띄우기 — 반드시 repo 폴더 안에서
+## STEP 2. OpenClaw 띄우기 (반드시 repo 폴더 안에서)
+
 ```bash
 openclaw tui
 ```
 
-### ③ TUI 첫 메시지로 한 줄
-```
-AGENTS.md랑 BOOTSTRAP.md 읽고 그 규칙대로 동작해.
-```
-→ 미니PC의 OpenClaw가 맥에서 정한 규칙을 똑같이 알게 된다. **간극 0.**
+## STEP 3. TUI 첫 메시지에 아래 전체를 붙여넣기
 
-### ④ 다음부터 (이미 clone 했으면)
-```bash
-cd LLM-nihongo-wiki
-git pull            # 맥에서 바뀐 내용 받기
-openclaw tui
-```
-
-> ⚠️ 두 기계가 같은 repo를 만지므로 충돌 주의: 항상 **pull 먼저, push 나중**.
-
----
-
-## A. OpenClaw (미니PC, 텔레그램 — 캡처 + 시험)
-
-> 아래를 OpenClaw 에이전트의 system prompt / instructions에 붙여넣기.
-> `<REPO경로>`만 실제 clone 경로로 바꾼다.
+> `<REPO경로>` 부분만 STEP 1의 `pwd` 결과로 바꾼다. 그 외엔 그대로 붙여넣기.
 
 ```
 당신은 일본어 학습 위키를 관리하는 에이전트입니다.
-작업 디렉토리: <REPO경로>/LLM-nihongo-wiki
+작업 디렉토리: <REPO경로>
 시작할 때 먼저 AGENTS.md와 DESIGN.md를 읽고 그 규칙을 그대로 따르세요.
 
 [캡처 모드] 사용자가 텔레그램으로 일본어 메모/사진/단어를 보내면:
@@ -64,11 +45,26 @@ openclaw tui
 위키 본문(grammar/·vocab/)을 직접 크게 고치지는 마세요. 정리·종합은 맥의 Claude Code가 합니다.
 ```
 
+→ 이제 미니PC의 OpenClaw가 맥에서 정한 규칙을 똑같이 알게 된다. **간극 0.**
+
+## STEP 4. 다음부터 (이미 clone 했으면 STEP 1 생략)
+
+```bash
+cd LLM-nihongo-wiki
+git pull          # 맥에서 바뀐 내용 먼저 받기
+openclaw tui      # 그리고 STEP 3 프롬프트 붙여넣기
+```
+
+> ⚠️ 두 기계가 같은 repo를 만진다. 충돌 방지를 위해 항상 **pull 먼저, push 나중**.
+> push에서 `authentication failed`가 뜨면 git 인증 문제 → `gh auth login` 또는 SSH 키/토큰 설정.
+
+---
 ---
 
-## B. Claude Code (맥, 야간 정리 — 종합)
+# (참고) 맥에서 야간 정리할 때 — Claude Code
 
-> cmux에서 repo 폴더를 열고 아래를 보내거나, 짧게는 그냥 "위키 정리해줘"라고만 해도 됨.
+> 위 STEP들은 미니PC용. 맥에서 위키를 정리할 땐 cmux에서 repo 폴더를 열고 아래를 보내거나,
+> 짧게 "위키 정리해줘"라고만 해도 됨.
 
 ```
 LLM-nihongo-wiki 저장소를 정리해줘. AGENTS.md 규칙을 따라:
@@ -82,7 +78,6 @@ LLM-nihongo-wiki 저장소를 정리해줘. AGENTS.md 규칙을 따라:
 
 ---
 
-## "git pull 받자마자 알아서" 를 더 자동화하려면 (선택)
-- **가장 쉬움**: 위 A를 OpenClaw system prompt에 박아두기 → 매 텔레그램 메시지가 알아서 처리됨.
-- **반자동**: 미니PC에 `sync.sh`(`cd <REPO경로> && git pull`) 만들어두고 OpenClaw 시작 전 실행.
-- **완전자동(고급)**: cron으로 주기적 `git pull`, 맥은 스케줄러로 야간에 B 프롬프트 자동 실행.
+# (참고) 더 자동화하고 싶다면 (지금은 안 해도 됨)
+- **반자동**: 미니PC에 `sync.sh`(`cd <REPO경로> && git pull`) 만들어 OpenClaw 시작 전 실행.
+- **완전자동(고급)**: cron으로 주기적 `git pull`, 맥은 스케줄러로 야간에 위 정리 프롬프트 자동 실행.
