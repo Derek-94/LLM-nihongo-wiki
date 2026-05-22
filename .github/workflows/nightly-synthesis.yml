@@ -29,10 +29,10 @@ jobs:
       - name: Claude 종합 정리 (파일 수정만)
         uses: anthropics/claude-code-action@v1
         with:
-          # 인증: 둘 중 하나만 시크릿으로 등록하면 됨 (아래 setup 주석 참고)
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          # 구독(Max/Pro) 토큰을 쓰려면 위 줄 대신 아래를 사용:
-          # claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # 인증: 구독(Max/Pro) 토큰 방식 — claude setup-token 으로 발급
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # API 키 방식으로 바꾸려면 위 줄 대신 아래를 사용:
+          # anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           prompt: |
             너는 LLM-nihongo-wiki 저장소의 "종합 에이전트"야.
             먼저 AGENTS.md를 읽고 그 규칙을 그대로 따라.
