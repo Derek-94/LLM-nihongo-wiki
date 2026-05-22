@@ -13,6 +13,7 @@ on:
 
 permissions:
   contents: write           # 정리 결과를 repo에 push 하기 위함
+  id-token: write           # claude-code-action의 OIDC 토큰 발급에 필요
 
 # 동시에 여러 번 돌지 않도록(겹치면 뒤엣것 취소)
 concurrency:
@@ -33,6 +34,8 @@ jobs:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # API 키 방식으로 바꾸려면 위 줄 대신 아래를 사용:
           # anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          # 기본 GITHUB_TOKEN을 직접 넘겨 OIDC 발급 단계를 건너뜀(앱 설치 불필요)
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           prompt: |
             너는 LLM-nihongo-wiki 저장소의 "종합 에이전트"야.
             먼저 AGENTS.md를 읽고 그 규칙을 그대로 따라.
