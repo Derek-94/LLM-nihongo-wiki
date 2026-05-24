@@ -47,6 +47,7 @@
 - image: /home/derek/.openclaw/media/inbound/file_7---6103e502-2386-4b10-971f-ac68e96eb75d.jpg
 - image: /home/derek/.openclaw/media/inbound/file_8---4d23d1b0-6ddd-4aec-8c79-d94f001a2341.jpg
 - image: /home/derek/.openclaw/media/inbound/file_9---ad79f3f9-3eea-47fe-88ea-183cb7fdfc98.jpg
+- image: /home/derek/.openclaw/media/inbound/file_10---974b56b1-ce06-4a30-9a96-e8df28fa4078.jpg
 
 1차 추출:
 - 문법 주제:
@@ -97,6 +98,12 @@
   - 夜中(よなか): 한밤중
   - 間違(まちが)い電話(でんわ): 잘못 걸려온 전화
   - 同僚(どうりょう): 동료
+  - 携帯電話(けいたいでんわ): 휴대전화
+  - 利用(りよう): 이용
+  - 禁止(きんし): 금지
+  - 注意(ちゅうい)する: 주의하다
+  - 妻(つま): 아내, 처
+  - 紙(かみ): 종이
 - 메모:
   - 사진 기준으로 lesson 14 수동태 단어 페이지들.
   - 손글씨 메모에 来る→来られる, 笑う→笑われる 같은 수동형 표시가 보임.
