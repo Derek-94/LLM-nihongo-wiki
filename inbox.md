@@ -31,9 +31,9 @@
 <!--
 정리 로그
 - 2026-05-22: 2026-05-21 캡처 4건(사역 문법 + 단어) 종합 완료.
-  → grammar/13-causative.md 보강, vocab/* 분류 확인, srs.md 등록. 처리된 raw는 git 히스토리 참조.
+  → grammar/13-사역동사.md 보강, vocab/* 분류 확인, srs.md 등록. 처리된 raw는 git 히스토리 참조.
 - 2026-05-24: 2026-05-24 캡처 2건(14차시 수동태 문법 + 단어) 종합 완료.
-  → grammar/14-passive.md 신규 작성, grammar/_index.md 차시/연결 갱신,
+  → grammar/14-수동태.md 신규 작성, grammar/_index.md 차시/연결 갱신,
     vocab/{nouns,verbs,adverbs-expressions}.md 분류 추가, srs.md에 신규 항목 등록.
     처리된 raw는 git 히스토리 참조.
 -->
