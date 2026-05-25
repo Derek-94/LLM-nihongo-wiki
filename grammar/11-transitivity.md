@@ -25,4 +25,4 @@
 - `〜てある`는 "누가 일부러 해놨다"는 의도가 깔린다. 대상은 보통 **が**를 받음: 窓が開けてある。
 - `〜ている`는 주체의 의도와 무관한 현재 상태.
 
-관련: [사역](causative.md) · [수수동사](giving-receiving.md) · [문법 지도](_index.md)
+관련: [사역](13-causative.md) · [수수동사](12-giving-receiving.md) · [문법 지도](_index.md)
